@@ -1,9 +1,10 @@
 # Site settings
 title: Middleware Insight
 email: your-email@domain.com
+baseurl: /freelancer-theme/
 url: https://unicolet.github.io/freelancer-theme
-description: "Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
-skills: "Web Developer - Graphic Artist - User Experience Designer"
+description: "Middleware Insight is a tool to expose middleware internals (messages, stats, logs) to the ELK stack for visualization, analysis and monitoring"
+skills: "apache camel elk"
 meta_author: Umberto Nicoletti
 #twitter_username: jekyllrb
 #github_username:  jekyll
@@ -33,28 +34,26 @@ color:
 
 # Footer settings
 footer:
-  copyright: Dr. Henry Jekyll
-  location: Location
-  social: Around the Web
-  credits: Credits
+  copyright: Prometeo S.R.L.
+  location: Crafted with love in Venice, Italy
 
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
-  - title: twitter
-    url: http://twitter.com/jekyllrb
-  - title: facebook
-    url:
-  - title: stack-overflow
-    url: http://stackoverflow.com/questions/tagged/jekyll
-  - title: bitbucket
-    url: http://bitbucket.org/jekyll
-  - title: github
-    url: http://github.com/jekyll
+#  - title: twitter
+#    url: http://twitter.com/jekyllrb
+#  - title: facebook
+#    url:
+#  - title: stack-overflow
+#    url: http://stackoverflow.com/questions/tagged/jekyll
+#  - title: bitbucket
+#    url: http://bitbucket.org/jekyll
+#  - title: github
+#    url: http://github.com/jekyll
 
 # Postal address (add as many lines as necessary)
 address:
-  - line: 3481 Melrose Place
-  - line: Beverly Hills, CA 90210
+  - Via Galilei 2/c/3
+  - 30035, Mirano (VE) Italy
 
 # Credits content
 credits: 'Freelancer is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.'

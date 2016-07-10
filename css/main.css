@@ -22,7 +22,7 @@ a:focus,
 a:active,
 a.active {
     outline: 0;
-    color: #18bc9c;
+    color: #ddd;
 }
 
 h1,
@@ -97,9 +97,8 @@ header img {
 
 header .intro-text .name {
     display: block;
-    text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 2em;
+    font-size: 1em;
     font-weight: 700;
 }
 
@@ -181,7 +180,11 @@ section h2 {
 
 section.success {
     color: #fff;
-    background: #18bc9c;
+    background: #FD6E8A;
+}
+
+section.pricing {
+    background: #ddd;
 }
 
 @media(max-width:767px) {
