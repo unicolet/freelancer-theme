@@ -446,3 +446,11 @@ footer .footer-below {
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
 }
+
+.privacy-policy {
+    color: #4f7092;
+}
+
+.features-title {
+    color: #ffda43;
+}
