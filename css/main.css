@@ -12,8 +12,12 @@ p {
     font-size: 20px;
 }
 
+li {
+    font-size: 18px;
+}
+
 p.small {
-    font-size: 16px;
+    font-size: 12px;
 }
 
 a,
@@ -184,7 +188,40 @@ section.success {
 }
 
 section.pricing {
-    background: #ddd;
+    background: #dedede;
+    /*padding: 60px;*/
+}
+
+section.pricing h2 {
+    color: #78a300;    
+}
+
+.pricing-top {
+    color: white;
+    background-color: #78a300;
+    
+    border-radius: 15px 15px 0px 0px;
+    border-top: 1px solid #78a300;
+    border-right: 1px solid #78a300;
+    border-left: 1px solid #78a300;
+}
+
+.pricing-body {
+    background-color: white;
+    border-right: 1px solid #78a300;
+    border-left: 1px solid #78a300;
+}
+
+.pricing-bottom {
+    background-color: white;
+    border-radius: 0px 0px 15px 15px;
+    border-bottom: 1px solid #78a300;
+    border-right: 1px solid #78a300;
+    border-left: 1px solid #78a300;
+}
+
+.pricing a {
+    color: #456c92;
 }
 
 @media(max-width:767px) {
