@@ -4,9 +4,11 @@
         <p>
             Middleware Insight requires the following to run:
             <ul>
-                <li>linux host, preferrably RedHat or a derivative (i.e.: Centos)</li>
+                <li>linux host, preferrably RedHat or a derivative (i.e.: Centos 6 or 7)</li>
                 <li>Oracle JDK 1.8</li>
-                <li>1GB of disk space, 2GB RAM</li>
+                <li>Access to an Elasticsearch 2.3 instance</li>
+                <li>Redis</li>
+                <li>20GB of disk space, 4GB RAM</li>
             </ul>
         </p>
         <p>
@@ -24,13 +26,112 @@
     <div class=container>
         <h3>Installation</h3>
         <p>
-        
+            Since Middleware Insight requires Java to run we are first going to check that
+            it's installed and working. On a terminal or over an ssh connection type:
         </p>
+            <pre>
+java -version</pre>
+           <p>It should print something like this:</p>
+           <pre>
+java version "1.8.0_91"
+Java(TM) SE Runtime Environment (build 1.8.0_91-b14)
+Java HotSpot(TM) 64-Bit Server VM (build 25.91-b14, mixed mode)</pre>
+        <p>
+            Your java version might differ and it will probably be higher number. That is fine.
+            Just make sure the first two numbers are <em>1.8</em>.
+        </p>
+        <h4>Installing Redis</h4>
+        <p>
+            To install of Redis copy and paste the following commands
+            on a privileged shell:
+        </p>
+        <pre>
+yum install -y epel-release
+yum install -y redis
+chkconfig redis on
+service redis start</pre>
+         <h4>Installing Elasticsearch</h4>
+        <p>
+            For low-volume environments (less than 100K messages/day) or for evaluation
+            purposes Elasticsearch can be installed on the same host as Middleware Insight.
+        </p>
+        <p>
+            For production environments we recommend running Elasticsearch on dedicated resources
+            and, depending on volume and HA requirements, on multiple nodes. Such a configuration
+            is beyond the scope of this document.
+        </p>
+        <p>
+            To install Elasticsearch locally (only for low-volume or evaluation)
+            copy and paste the following commands on a privileged shell:
+        </p>
+        <pre>
+yum install -y epel-release
+yum install -y redis
+chkconfig redis on
+service redis start
+rpm --import https://packages.elastic.co/GPG-KEY-elasticsearch
+cat&lt;&lt;EOF > /etc/yum.repos.d/elasticsearch.repo
+[elasticsearch-2.x]
+name=Elasticsearch repository for 2.x packages
+baseurl=https://packages.elastic.co/elasticsearch/2.x/centos
+gpgcheck=1
+gpgkey=https://packages.elastic.co/GPG-KEY-elasticsearch
+enabled=1
+EOF
+yum install -y elasticsearch
+chkconfig --add elasticsearch
+service elasticsearch start</pre>
+    <h4>Installing Middleware Insight</h4>
+    <p>
+        On the same privileged shell as above copy and paste:
+<pre>
+cat&lt;&lt;EOF > /etc/yum.repos.d/middlewareinsigth.repo
+[middlewareinsight-1.x]
+name=Middleware Insight repository for 1.x
+baseurl=https://packages.prometeo.it/mi/1.x/centos
+gpgcheck=0
+enabled=1
+EOF
+yum install -y prometeo-insight
+</pre>
+    </p>
     </div>
     <div class=container>
-        <h3>Support</h3>
+        <h3>Configuration</h3>
         <p>
-            
+            Configuration for Middleware Insight requires the following two pieces of
+            information:
+        </p>
+            <ol>
+                <li>
+                    The Mirth Connect database type, url, username and password. Middleware Insight
+                    supports Postgres 9.x, Oracle and Mysql. Please note that the Mirth default embedded database
+                    is not supported and should not be used for production deployments
+                </li>
+                <li>
+                    The Elasticsearch cluster name and ip
+                </li>
+            </ol>
+        <p>
+            With that information at hand edit <em>/etc/insight/config.properties</em> and configure each
+            section appropriately.
+        </p>
+        <p>
+            Once you are done with the configuration files Middleware Insight can be started.
+            As the root user run:
+        </p>
+        <pre>
+service prometeo-insight start</pre>
+    </div>
+     <div class=container>
+        <h3>Troubleshooting</h3>
+        <p>
+            Middleware Insight logs to <em>/var/log/insight/</em> so if something does not appear to work
+            or if Middleware Insight does not start at all make sure to review the logs.
+        </p>
+        <p>
+            If still it does not work and if you have an active entitlement you can open an issue to us.
         </p>
     </div>
-</section
+    
+</section>
