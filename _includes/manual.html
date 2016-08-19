@@ -65,10 +65,6 @@ service redis start</pre>
             copy and paste the following commands on a privileged shell:
         </p>
         <pre>
-yum install -y epel-release
-yum install -y redis
-chkconfig redis on
-service redis start
 rpm --import https://packages.elastic.co/GPG-KEY-elasticsearch
 cat&lt;&lt;EOF > /etc/yum.repos.d/elasticsearch.repo
 [elasticsearch-2.x]
@@ -81,6 +77,33 @@ EOF
 yum install -y elasticsearch
 chkconfig --add elasticsearch
 service elasticsearch start</pre>
+
+         <h4>Installing Kibana</h4>
+        <p>
+            Kibana is the UI that we will use to explore the data (events, messages) that we are going
+            to store into Elasticsearch. Kibana can be installed on the same host with Middleware Insight.
+        </p>
+        <p>
+            Kibana is basically a web werver which publishes a web application that can be used to build
+            dashboard for data stored in Elasticsearch.
+        </p>
+        <p>
+            To install Kibana locally copy and paste the following commands on a privileged shell:
+        </p>
+        <pre>
+rpm --import https://packages.elastic.co/GPG-KEY-elasticsearch
+cat&lt;&lt;EOF > /etc/yum.repos.d/kibana.repo
+[kibana-4.5]
+name=Kibana repository for 4.5.x packages
+baseurl=http://packages.elastic.co/kibana/4.5/centos
+gpgcheck=1
+gpgkey=http://packages.elastic.co/GPG-KEY-elasticsearch
+enabled=1
+EOF
+yum install -y kibana
+chkconfig --add kibana
+service kibana start</pre>
+
     <h4>Installing Middleware Insight</h4>
     <p>
         On the same privileged shell as above copy and paste:
