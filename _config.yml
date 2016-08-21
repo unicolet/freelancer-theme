@@ -6,8 +6,6 @@ url: https://unicolet.github.io/freelancer-theme
 description: "Middleware Insight is a tool to expose middleware internals (messages, stats, logs) to the ELK stack for visualization, analysis and monitoring"
 skills: "apache camel elk"
 meta_author: Umberto Nicoletti
-#twitter_username: jekyllrb
-#github_username:  jekyll
 
 # Google webmaster tools
 google_verify:
@@ -15,15 +13,7 @@ google_verify:
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
 bing_verify:
 
-# Contact form:
-# - static : pass through formspree.io to validate email sending
-# - disqus : replace contact form by disqus thread
-# - comment the line below if you want to stick with the default PHP contact form
 contact: static
-
-# If you use disqus you need disqus shortname
-# https://help.disqus.com/customer/portal/articles/466208
-#disqus_shortname: myshortname
 
 # Color settings (hex-codes without the leading hash-tag)
 color:
@@ -37,27 +27,14 @@ footer:
   copyright: Prometeo S.R.L.
   location: Crafted with love in Venice, Italy
 
-# Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
-social:
-#  - title: twitter
-#    url: http://twitter.com/jekyllrb
-#  - title: facebook
-#    url:
-#  - title: stack-overflow
-#    url: http://stackoverflow.com/questions/tagged/jekyll
-#  - title: bitbucket
-#    url: http://bitbucket.org/jekyll
-#  - title: github
-#    url: http://github.com/jekyll
-
 # Postal address (add as many lines as necessary)
 address:
   - Via Galilei 2/c/3
   - 30035, Mirano (VE) Italy
 
-# Credits content
-credits: 'Freelancer is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.'
-
 # Build settings
 markdown: kramdown
 permalink: pretty
+
+# various configs
+root_password: s3rvice

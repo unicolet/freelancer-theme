@@ -22,9 +22,48 @@
             SQLServer support is scheduled to be released soon. Please contact us if
             you need it urgently.
         </p>
+        <p>
+            We currently offer two options to run Middleware Insight:
+            <ol>
+                <li>a virtual appliance (OVF) ready to run</li>
+                <li>an installable RPM, recommended for larger deployments or sites with special requirements</li>
+            </ol>
+        </p>
     </div>
     <div class=container>
-        <h3>Installation</h3>
+        <h3>Installation (Virtual Appliance)</h3>
+        <p>
+            Download the Virtual Appliance zip file from our repository. Extract the archive, then import the
+            .ovf file into your virtualization solution. The appliance should work with all recent virtualization
+            platforms which support OVF files.
+        </p>
+            <div class="panel panel-warning">
+            <div class="panel-heading">
+                Importing on WMWARE
+            </div>
+            <div class="panel-body">
+                When importing on VMWARE click retry during the import to use a relaxed set of constraints.
+            </div>
+        </div>
+        <p>
+            After importing the virtual appliance remember to install the guest tools suitable for your platform.
+        </p>
+        <p>
+            The password of the root user is <em>{{site.root_password}}</em> and we recommend that you change it after the first login.
+            The operating system is CentOS Linux 7 x64.
+        </p>
+        <p>
+            Go to <a href="#configuration">configuration</a>.
+        </p>
+    </div>
+    <div class=container>
+        <h3>Installation on Amazon AWS</h3>
+        <p>
+            We are working on an Amazon AWS AMI, which is coming soon. In the meanwhile please use the RPM installation method or contact us.
+        </p>
+    </div>
+    <div class=container>
+        <h3>Installation (RPM)</h3>
         <p>
             Since Middleware Insight requires Java to run we are first going to check that
             it's installed and working. On a terminal or over an ssh connection type:
@@ -120,6 +159,7 @@ yum install -y prometeo-insight
     </p>
     </div>
     <div class=container>
+        <a name=configuration></a>
         <h3>Configuration</h3>
         <p>
             Configuration for Middleware Insight requires the following two pieces of
@@ -139,6 +179,14 @@ yum install -y prometeo-insight
             With that information at hand edit <em>/etc/insight/config.properties</em> and configure each
             section appropriately.
         </p>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                Configuration file reference
+            </div>
+            <div class="panel-body">
+                <a href="{{site.baseurl}}/docs/reference/">Here</a> you can find the configuration file reference.
+            </div>
+        </div>
         <p>
             Once you are done with the configuration files Middleware Insight can be started.
             As the root user run:
