@@ -118,6 +118,7 @@ header .intro-text .name {
 header .intro-text .skills {
     font-size: 1.25em;
     font-weight: 300;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 header .intro-text .skills a {
@@ -503,4 +504,8 @@ footer .footer-below {
 
 .features-title {
     color: #ffda43;
+}
+
+.popover-content {
+    color: black;
 }
